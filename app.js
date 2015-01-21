@@ -75,15 +75,18 @@ var showMovie = function(movie) {
 	var result = $('.templates .films').clone();
 
 	// Set Movies properties in result
-	var movieElem = result.find('.movie-text a');
-	movieElem.attr('href', movie.movies.link);
-	movieElem.text(movie.movies.title);
-	movieElem.attr('src', movie.movies.posters.original);
-	movieElem.text(movie.movies.posters.original);
+	var title = result.find('.title');
+	var poster = result.find('.poster');
 	
-	// set the date asked property in result
+
+	//set title and poster properties in result
+	title.text(movie.movies.title);
+	poster.attr('src', movie.movies.posters.original);
+	poster.text(movie.movies.posters.original);
+	
+	// set the release_dates property in result
 	var date = result.find('.date-released');
-	date.text(movie.movies.ratings.theater);
+	date.text(movie.movies.release_dates.theater);
 
 
 	// set the rating property in result
