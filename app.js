@@ -55,7 +55,7 @@ var getMovie = function(tags) {
 
 		$.each(result.movies, function(i, item) {
 			var film = showMovie(item);
-			$('.results').append(movie);
+			$('.results').append(film);
 		});
 	})
 	.fail(function(jqXHR, error, errorThrown){
@@ -80,22 +80,22 @@ var showMovie = function(movie) {
 	
 
 	//set title and poster properties in result
-	title.text(movie.movies.title);
-	poster.attr('src', movie.movies.posters.original);
-	poster.text(movie.movies.posters.original);
+	title.text(movie.title);
+	poster.attr('src', movie.posters.original);
+	//poster.text(movie.posters.original);
 	
 	// set the release_dates property in result
 	var date = result.find('.date-released');
-	date.text(movie.movies.release_dates.theater);
+	date.text(movie.release_dates.theater);
 
 
 	// set the rating property in result
 	var rating = result.find('.rating');
-	rating.text(movie.movies.release_dates.theater);
+	rating.text(movie.ratings.audience_score);
 
 	// set the synopsis property in result
 	var synopsis = result.find('.synop');
-	synopsis.text(movie.movies.synopsis);
+	synopsis.text(movie.synopsis);
 
 	return result;
 };
